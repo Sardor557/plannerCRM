@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="Планнер СРМ" Logo="BO_Dashboard" Company="шнг" Copyright="щшз" Description="щшжшщ">
+  <BOModel>
+    <Class Name="DevExpress.ExpressApp.SystemModule.AboutInfo" Caption=";lkllkhjkjh" />
+    <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyActionPermissionObject">
+      <OwnMembers>
+        <Member Name="Role" Caption="Роль" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyNavigationPermissionObject">
+      <OwnMembers>
+        <Member Name="Role" Caption="Роль" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRole" Caption="Роль" />
+    <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyTypePermissionObject">
+      <OwnMembers>
+        <Member Name="Role" Caption="Роль" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser" Caption="Base User" />
+    <Class Name="plannerCRM.Module.BusinessObjects.ApplicationUser" Caption="Пользователи" />
+    <Class Name="plannerCRM.Module.BusinessObjects.ApplicationUserLoginInfo" Caption="Логин" />
+    <Class Name="plannerCRM.Module.BusinessObjects.MyModels.spCategory" Caption="Категория" IsVisibleInReports="True" ImageName="Categorize" />
+    <Class Name="plannerCRM.Module.BusinessObjects.MyModels.spOrganization" Caption="Организация" ImageName="BO_Organization" />
+    <Class Name="plannerCRM.Module.BusinessObjects.MyModels.spSpecialization" Caption="Специализация" />
+    <Class Name="plannerCRM.Module.BusinessObjects.MyModels.tbAnalizeResult" Caption="Файл анализ" />
+    <Class Name="plannerCRM.Module.BusinessObjects.MyModels.tbFavorites" Caption="Избранное" />
+    <Class Name="plannerCRM.Module.BusinessObjects.MyModels.tbRating" Caption="Рейтинг" />
+    <Class Name="plannerCRM.Module.BusinessObjects.MyModels.tbScheduler" Caption="Шедулер" />
+    <Class Name="plannerCRM.Module.BusinessObjects.MyModels.tbUser" Caption="Телеграм пользователи" />
+  </BOModel>
+  <NavigationItems>
+    <Items>
+      <Item Id="MyModels" Caption="Дата">
+        <Items>
+          <Item Id="spCategory_ListView" ImageName="Categorize" />
+          <Item Id="spOrganization_ListView" ImageName="BO_Organization" />
+          <Item Id="spSpecialization_ListView" ImageName="PasteSpecial" />
+          <Item Id="tbAnalizeResult_ListView" ImageName="AddFile" />
+          <Item Id="tbFavorites_ListView" ImageName="BO_Department" />
+          <Item Id="tbRating_ListView" ImageName="Actions_Rating" />
+          <Item Id="tbScheduler_ListView" ImageName="BO_Scheduler" />
+          <Item Id="tbUser_ListView" ImageName="AllowUsersToEditRanges" />
+        </Items>
+      </Item>
+      <Item Id="Reports" Caption="Отчеты">
+        <Items>
+          <Item Id="ReportsV2" Caption="Отчеты" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <Options>
+    <LayoutManagerOptions RequiredFieldMark="*" />
+  </Options>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="22.1.3.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <ListView Id="ApplicationUser_ListView" Caption="Пользователи" />
+    <ListView Id="PermissionPolicyRole_ListView">
+      <Columns>
+        <ColumnInfo Id="IsAdministrative" Caption="Администратор" />
+      </Columns>
+    </ListView>
+    <DetailView Id="SearchFilter_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="SearchFilter" Direction="Horizontal" RelativeSize="100">
+              <LayoutGroup Id="Autob5fc5dc2-efc3-4f76-a688-6f47338dfe0f" ShowCaption="False" Caption="" Index="0" RelativeSize="22.062780269058297" IsNewNode="True">
+                <LayoutItem Id="Category" ViewItem="Category" Index="0" RelativeSize="3.8694074969770256" IsNewNode="True" />
+                <LayoutItem Id="CreatedAt" ViewItem="CreatedAt" Index="1" RelativeSize="2.902055622732769" IsNewNode="True" />
+                <LayoutItem Id="IsActive" ViewItem="IsActive" Index="2" RelativeSize="93.2285368802902" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Categories_Group" ShowCaption="True" Caption="Categories" Index="1" RelativeSize="77.9372197309417" IsNewNode="True">
+                <LayoutItem Id="Categories" ViewItem="Categories" Index="0" RelativeSize="100" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutItem Id="Category" Removed="True" />
+              <LayoutItem Id="CreatedAt" Removed="True" />
+              <LayoutItem Id="IsActive" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="Categories_Group" Removed="True" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="spCategory_DetailView" ObjectCaptionFormat="{0:Id}" />
+    <ListView Id="spCategory_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Category_id" Caption="Category_id" PropertyName="Id" SortOrder="Ascending" SortIndex="1" Index="0" Width="102" IsNewNode="True" />
+        <ColumnInfo Id="NameUz" Index="1" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

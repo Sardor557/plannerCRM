@@ -1,0 +1,82 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+@using plannerCRM.Module.BusinessObjects.MyModels
+
+@if (Data is not null)
+{
+    <div class="row">
+
+
+        <DxGridLayout CssClass="w-100 ch-480">
+            <Rows>
+                <DxGridLayoutRow Height="auto" />
+            </Rows>
+            <Columns>
+                <DxGridLayoutColumn Width="2fr" />
+                <DxGridLayoutColumn />
+            </Columns>
+            <Items>
+
+                <DxGridLayoutItem Row="0" Column="0">
+                    <Template>
+                        <div class="gridlayout-left-side-bar gridlayout-item">
+
+
+                            <DxFormLayout CaptionPosition="CaptionPosition.Horizontal" CssClass="w-100">
+                                <DxFormLayoutItem Caption="Location:" ColSpanLg="4" ColSpanMd="12">                                    
+                                    <DxDateEdit @bind-Date="@Data.CreatedAt" Mask="@DateTimeMask.ShortDate" />
+                                </DxFormLayoutItem>
+                               @* <DxFormLayoutItem Caption="Check in:" ColSpanLg="4" ColSpanMd="6">                                    
+                                     <DxTextBox @bind-Text="@Data.Oid" />
+                                </DxFormLayoutItem>*@
+                                <DxFormLayoutItem Caption="Check out:" ColSpanLg="4" ColSpanMd="6">                                    
+                                     <DxCheckBox @bind-Checked="@Data.IsActive" />
+                                </DxFormLayoutItem>
+                            </DxFormLayout>
+
+
+                        </div>
+                    </Template>
+                </DxGridLayoutItem>
+                <DxGridLayoutItem Row="0" Column="1">
+                    <Template>
+                        <div class="gridlayout-right-side-bar gridlayout-item">
+                            <DxGrid Data="@Data.Categories">
+                                <Columns>
+                                    <DxGridDataColumn FieldName="NameUz" DisplayFormat="D" MinWidth="100" />
+                                    <DxGridDataColumn FieldName="NameLt" Width="15%" />
+                                    <DxGridDataColumn FieldName="NameRu" Width="15%" />
+                                </Columns>
+                            </DxGrid>
+                        </div>
+                    </Template>
+                </DxGridLayoutItem>
+
+            </Items>
+        </DxGridLayout>
+
+
+
+
+
+
+@*
+        @foreach (var item in Data.Categories)
+        {
+            <div class="col-auto" style="cursor: pointer;" @onclick=@(async () => await ItemClick.InvokeAsync(Data))>
+                @if (item is not null)
+                {
+                    <div class="border d-flex justify-content-center align-items-center" style="height:150px; width: 104px;">
+                        @item.NameUz
+                    </div>
+                }
+            </div>
+        }*@
+    </div>
+}
+
+@code {
+    [Parameter]
+    public SearchFilter Data { get; set; }
+    [Parameter]
+    public EventCallback<SearchFilter> ItemClick { get; set; }
+}

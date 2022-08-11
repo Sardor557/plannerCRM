@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="spCategory_LookupListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Category_id" PropertyName="Id" Index="0" SortOrder="None" SortIndex="-1" DisplayFormat="" EditMask="" MaxLength="100" />
+        <ColumnInfo Id="NameUz" Index="1" SortIndex="0" SortOrder="Ascending" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

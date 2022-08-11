@@ -1,0 +1,9 @@
+﻿<CategorytemListView Data=@ComponentModel.Data ItemClick=@ComponentModel.OnItemClick />
+
+@code
+{
+    public static RenderFragment Create(CategoryItemListViewModel componentModel) => @<CategoryItemListViewRenderer ComponentModel=@componentModel />;
+
+    [Parameter]
+    public CategoryItemListViewModel ComponentModel { get; set; }
+}

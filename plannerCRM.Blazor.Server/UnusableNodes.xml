@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <ActionDesign Id="ActionDesign">
+    <Actions Id="Actions">
+      <Action Id="CategoryActive" Caption="Активация" />
+    </Actions>
+  </ActionDesign>
+  <Views Id="Views">
+    <DetailView Id="spCategory_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="spCategory">
+              <LayoutItem Id="NameUz" RelativeSize="29.906542056074766" Index="0" />
+              <LayoutItem Id="NameLt" RelativeSize="22.429906542056074" Index="1" />
+              <LayoutItem Id="NameRu" RelativeSize="22.429906542056074" Index="2" />
+              <LayoutItem Id="Organization" RelativeSize="25.233644859813083" Index="3" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

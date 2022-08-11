@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <NavigationItems>
+    <Items>
+      <Item Id="MyModels">
+        <Items>
+          <Item Id="NavItemSearch" Caption="Search" QuickAccessItem="True" ViewId="SearchFilter_DetailView" IsNewNode="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="22.1.3.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <ListView Id="SearchFilter_Categories_ListView" EditorTypeName="DevExpress.ExpressApp.Blazor.Editors.Grid.GridListEditor" />
+    <DetailView Id="SearchFilter_DetailView">
+      <Items>
+        <ButtonDetailViewItemBlazor Id="acceptButton" IsNewNode="True" />
+      </Items>
+    </DetailView>
+    <DetailView Id="SearchFilter_DetailView_Copy" CaptionColon=":" EnableCaptionColon="True" CaptionLocation="Default" CaptionHorizontalAlignment="Default" CaptionVerticalAlignment="Default" CaptionWordWrap="Default" EnableLayoutGroupImages="True" RequiredFieldMark="*" ClassName="plannerCRM.Module.BusinessObjects.MyModels.SearchFilter" IsNewNode="True">
+      <Items IsNewNode="True">
+        <ButtonDetailViewItemBlazor Id="acceptButton" IsNewNode="True" />
+        <PropertyEditor Id="Categories" PropertyName="Categories" View="SearchFilter_Categories_ListView" IsNewNode="True" />
+        <PropertyEditor Id="Category" PropertyName="Category" IsNewNode="True" />
+        <PropertyEditor Id="CreatedAt" PropertyName="CreatedAt" IsNewNode="True" />
+        <PropertyEditor Id="IsActive" PropertyName="IsActive" IsNewNode="True" />
+        <PropertyEditor Id="Oid" PropertyName="Oid" IsNewNode="True" />
+      </Items>
+      <Layout IsNewNode="True">
+        <LayoutGroup Id="Main" Index="0" ShowCaption="False" RelativeSize="100" IsNewNode="True">
+          <LayoutGroup Id="SimpleEditors" Index="0" ShowCaption="False" RelativeSize="100" IsNewNode="True">
+            <LayoutGroup Id="SearchFilter" Index="0" Direction="Horizontal" ShowCaption="False" RelativeSize="100" IsNewNode="True">
+              <LayoutGroup Id="Autob5fc5dc2-efc3-4f76-a688-6f47338dfe0f" ShowCaption="False" Caption="Autob5fc5dc2-efc3-4f76-a688-6f47338dfe0f(4)" Index="0" RelativeSize="21.974248927038627" IsNewNode="True">
+                <LayoutItem Id="Category" ViewItem="Category" Index="0" RelativeSize="3.8694074969770256" IsNewNode="True" />
+                <LayoutItem Id="CreatedAt" ViewItem="CreatedAt" Index="1" RelativeSize="2.902055622732769" IsNewNode="True" />
+                <LayoutGroup Id="Auto2b6cfcb6-15ce-4fdb-aa40-42bffe548fb5" ShowCaption="False" Caption="" Direction="Horizontal" Index="2" RelativeSize="93.2285368802902" IsNewNode="True">
+                  <LayoutItem Id="IsActive" ViewItem="IsActive" Index="0" RelativeSize="50" IsNewNode="True" />
+                  <LayoutItem Id="acceptButton" ViewItem="acceptButton" Index="1" RelativeSize="50" IsNewNode="True" />
+                </LayoutGroup>
+              </LayoutGroup>
+              <LayoutGroup Id="Categories_Group" ShowCaption="True" Caption="Categories" Index="1" RelativeSize="78.02575107296137" IsNewNode="True">
+                <LayoutItem Id="Categories" ViewItem="Categories" Index="0" RelativeSize="100" IsNewNode="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="spCategory_ListView" EditorTypeName="plannerCRM.Blazor.Server.Editors.ListEditors.CategoryCustomListEditor" />
+  </Views>
+</Application>
