@@ -22,13 +22,13 @@
 
 
                             <DxFormLayout CaptionPosition="CaptionPosition.Horizontal" CssClass="w-100">
-                                <DxFormLayoutItem Caption="Location:" ColSpanLg="4" ColSpanMd="12">                                    
-                                    <DxDateEdit @bind-Date="@Data.CreatedAt" Mask="@DateTimeMask.ShortDate" />
+                                <DxFormLayoutItem Caption="Start:" ColSpanLg="4" ColSpanMd="12">                                    
+                                    <DxDateEdit @bind-Date="@Data.Start" Mask="@DateTimeMask.ShortDate" />
                                 </DxFormLayoutItem>
-                               @* <DxFormLayoutItem Caption="Check in:" ColSpanLg="4" ColSpanMd="6">                                    
-                                     <DxTextBox @bind-Text="@Data.Oid" />
-                                </DxFormLayoutItem>*@
-                                <DxFormLayoutItem Caption="Check out:" ColSpanLg="4" ColSpanMd="6">                                    
+                                <DxFormLayoutItem Caption="End:" ColSpanLg="4" ColSpanMd="12">                                    
+                                    <DxDateEdit @bind-Date="@Data.End" Mask="@DateTimeMask.ShortDate" />
+                                </DxFormLayoutItem>
+                                <DxFormLayoutItem Caption="Active:" ColSpanLg="4" ColSpanMd="6">                                    
                                      <DxCheckBox @bind-Checked="@Data.IsActive" />
                                 </DxFormLayoutItem>
                             </DxFormLayout>

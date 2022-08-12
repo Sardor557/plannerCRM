@@ -47,22 +47,9 @@ public sealed class plannerCRMModule : ModuleBase
         base.Setup(application);
         //application.ObjectSpaceCreated += Application_CategorySearchObjectSpaceCreated;
         //application.SetupComplete += Application_SetupComplete;
-        application.ObjectSpaceCreated += Application_ObjectSpaceCreated1;
         application.ObjectSpaceCreated += Application_ObjectSpaceCreated;
 
         // Manage various aspects of the application UI and behavior at the module level.
-    }
-
-    private void Application_ObjectSpaceCreated1(object sender, ObjectSpaceCreatedEventArgs e)
-    {
-        CompositeObjectSpace compositeObjectSpace = e.ObjectSpace as CompositeObjectSpace;
-        if (compositeObjectSpace != null)
-        {
-            if (!(compositeObjectSpace.Owner is CompositeObjectSpace))
-            {
-                compositeObjectSpace.PopulateAdditionalObjectSpaces((XafApplication)sender);
-            }
-        }
     }
 
     public override void CustomizeTypesInfo(ITypesInfo typesInfo)
@@ -96,7 +83,7 @@ public sealed class plannerCRMModule : ModuleBase
         {
             var sourceObject = (SearchFilter)e.SourceObject;
             var targetObject = new SearchFilter();
-            targetObject.Category = objectSpace.GetObject<spCategory>(sourceObject.Category);
+            //targetObject.Category = objectSpace.GetObject<spCategory>(sourceObject.Category);
             var categories = new List<spCategory>();
             foreach (var cat in sourceObject.Categories)
             {
@@ -119,6 +106,15 @@ public sealed class plannerCRMModule : ModuleBase
         {
             nonPersistentObjectSpace.ObjectsGetting += ObjectSpace_ObjectsGetting;
         }
+
+        CompositeObjectSpace compositeObjectSpace = e.ObjectSpace as CompositeObjectSpace;
+        if (compositeObjectSpace != null)
+        {
+            if (!(compositeObjectSpace.Owner is CompositeObjectSpace))
+            {
+                compositeObjectSpace.PopulateAdditionalObjectSpaces((XafApplication)sender);
+            }
+        }
     }
 
     private void ObjectSpace_ObjectsGetting(object sender, ObjectsGettingEventArgs e)
@@ -134,7 +130,7 @@ public sealed class plannerCRMModule : ModuleBase
 
             for (int i = 1; i < 10; i++)
             {
-                objects.Add(new SearchFilter() { CreatedAt = new DateTime(2022, 01, 01) });
+                objects.Add(new SearchFilter() { Start = new DateTime(2022, 01, 01) });
             }
             e.Objects = objects;
         }

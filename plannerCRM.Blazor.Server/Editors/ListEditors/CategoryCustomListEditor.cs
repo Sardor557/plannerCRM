@@ -98,18 +98,14 @@ namespace plannerCRM.Blazor.Server.Editors.ListEditors
                 {
                     bindingList.ListChanged -= BindingList_ListChanged;
                 }
-                var objectType = typeof(SearchFilter);
-                IObjectSpace newObjectSpace = application.CreateObjectSpace(objectType);
+                //var objectType = typeof(SearchFilter);
+                //IObjectSpace newObjectSpace = application.CreateObjectSpace(objectType);
 
-                var searchfilter = new SearchFilter();
-                var categories = newObjectSpace.GetObjects<spCategory>();
-                searchfilter.Categories = categories;
-                foreach (var item in categories)
-                {
-                    searchfilter.Category = item;
-                }
+                //var searchfilter = new SearchFilter();
+                //var categories = newObjectSpace.GetObjects<spCategory>();
+                //searchfilter.Categories = categories;
 
-                holder.ComponentModel.Data = searchfilter;
+                holder.ComponentModel.Data = selectedObjects;
 
                 if (dataSource is IBindingList newBindingList)
                 {
@@ -152,18 +148,13 @@ namespace plannerCRM.Blazor.Server.Editors.ListEditors
 
         private void ComponentModel_ItemClick(object sender, CategoryItemClickEventArgs e)
         {
-            var objectType = typeof(SearchFilter);
-            IObjectSpace newObjectSpace = application.CreateObjectSpace(objectType);
+            //var objectType = typeof(SearchFilter);
+            //IObjectSpace newObjectSpace = application.CreateObjectSpace(objectType);
 
-            var searchfilter = new SearchFilter();
-            var categories = newObjectSpace.GetObjects<spCategory>();
-            searchfilter.Categories = categories;
-            foreach (var item in categories)
-            {
-                searchfilter.Category = item;
-            }
+            //var searchfilter = new SearchFilter();
+            //var categories = newObjectSpace.GetObjects<spCategory>();
+            //searchfilter.Categories = categories;
 
-            selectedObjects = searchfilter;
             OnSelectionChanged();
             OnProcessSelectedItem();
         }
@@ -175,12 +166,13 @@ namespace plannerCRM.Blazor.Server.Editors.ListEditors
             IObjectSpace newObjectSpace = application.CreateObjectSpace(objectType);
 
             var searchfilter = new SearchFilter();
+            searchfilter.ObjectSpace = newObjectSpace;
             var categories = newObjectSpace.GetObjects<spCategory>();
             searchfilter.Categories = categories;
-            foreach (var item in categories)
-            {
-                searchfilter.Category = item;
-            }
+            //foreach (var item in categories)
+            //{
+            //    searchfilter.Category = item;
+            //}
 
             selectedObjects = searchfilter;
             return selectedObjects.Categories.ToList();

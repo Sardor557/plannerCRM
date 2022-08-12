@@ -14,26 +14,14 @@ namespace plannerCRM.Module.BusinessObjects.MyModels
     [DomainComponent, DefaultClassOptions]
     public class SearchFilter : NonPersistentBaseObject, IObjectSpaceLink
     {
-        public DateTime CreatedAt { get; set; }
+        public DateTime Start { get; set; } = DateTime.Now;
+        public DateTime End { get; set; } = DateTime.Now.AddDays(1);
 
         public bool IsActive { get; set; }
 
 
-        private spCategory category;
-        public spCategory Category
-        {
-            get
-            {
-                if (category == null)
-                {
-                    category = ObjectSpace.GetObjects<spCategory>(CriteriaOperator.Parse($"CreatedOn>='{CreatedAt}'")).FirstOrDefault();
-                }
-                return category;
-            }
-            set { category = value; }
-        }
-
         private IObjectSpace objectSpace;
+
         [Browsable(false)]
         public IObjectSpace ObjectSpace
         {
@@ -46,8 +34,9 @@ namespace plannerCRM.Module.BusinessObjects.MyModels
         {
             get
             {
-                //if (categories == null)
-                //    categories = ObjectSpace.GetObjects<spCategory>(CriteriaOperator.Parse($"CreatedOn>='{CreatedAt}'"));
+                categories = ObjectSpace.GetObjects<spCategory>()
+                    .Where(x => x.CreatedOn >= Start && x.CreatedOn <= End && x.IsActive == IsActive)
+                    .ToList();
 
                 return categories;
             }

@@ -6,8 +6,7 @@ namespace plannerCRM.Module.BusinessObjects.MyModels
 {
     [NavigationItem("MyModels")]
     [Persistent("MyModels.spCategory")]
-    [Appearance("ConiditionView", AppearanceItemType = "ViewItem", TargetItems = "*", Criteria = "IsActive = false",
-        Context = "Any", BackColor = "Red", FontColor = "Maroon", Priority = 1)]
+    [Appearance("ConiditionView", AppearanceItemType = "ViewItem", TargetItems = "*", Criteria = "IsActive = false", Context = "Any", BackColor = "Red", FontColor = "Maroon", Priority = 1)]
     public class spCategory : BaseModel
     {
         public spCategory(Session session) : base(session)
